@@ -35,7 +35,7 @@ class App extends Component {
     let sortedArray = this.state.expenses;
     let sortDirection = this.state.ascending ? false : true;
     sortedArray.sort((a, b) => {
-      return sortDirection ?  a.amt > b.amt :  a.amt < b.amt;
+      return sortDirection ?  a.amt > b.amt : a.amt < b.amt;
     });
     this.setState({
       expenses: sortedArray,
