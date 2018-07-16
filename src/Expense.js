@@ -6,6 +6,7 @@ class Expense extends Component {
     super(props);
     this.state = { isToggle: false };
     this.toggleForm = this.toggleForm.bind(this);
+    this.onRemove = this.onRemove.bind(this);
   }
 
   toggleForm() {
@@ -13,11 +14,15 @@ class Expense extends Component {
     this.setState({ isToggle: toggleState });
   }
 
+  onRemove() {
+    this.props.removeExpense(this.props.indexExpense);
+  }
+
   render() {
     return (
       <div className="singleExpense">
         <p className="icons">
-          <i className="fa fa-trash-o" onClick={this.props.onRemove}></i>
+          <i className="fa fa-trash-o" onClick={this.onRemove}></i>
           <i className="fa fa-pencil-square-o" onClick={this.toggleForm}></i>
         </p>
         <p>Amount: ${this.props.amt}</p>
